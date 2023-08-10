@@ -8,7 +8,6 @@ export default (socket: WebSocket) => {
 
 		switch (msg.event) {
 			case "start":
-				console.log(msg);
 				callManager.findByCallSid(msg.start.callSid)?.onStart();
 				callManager.setCocketForCallSid(msg.start?.callSid, socket);
 				callManager.setStreamSidForCallSid(msg.start?.callSid, msg.streamSid);
